@@ -1,0 +1,7 @@
+*.gz
+*.aux
+*.out
+*.npz
+*.log
+*.fls
+__pycache__*
