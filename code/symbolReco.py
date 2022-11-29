@@ -40,8 +40,9 @@ def computeClProb(alltraces, hyp, min_threshol, saveIm = False):
     im = convert_to_imgs(get_traces_data(alltraces, hyp[1]), 32)
     if saveIm:
         imsave(hyp[0] + '.png', im)
-    # create the list of possible classes (maybe connected to your classifier ???)
-    classes = ['!', '(', ')', '+', ',', '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '=', 'A_', 'B_', 'C_', 'Delta', 'E_', 'F_', 'G_', 'H_', 'I_', 'L_','M_','N_','P_','R_','S_','T_','V_','X_','Y_','[',']','a','alpha','b','beta','c','cos','d','div','div_op','dot','e','exists','f','forall','g','gamma','geq','gt','h','i','in','infty','int','j','k','l','lambda','ldots','leq','lim','log','lt','m','mu','n','neq','o','p','phi','pi','pipe','pm','prime','q','r','rightarrow','s','sigma','sin','sqrt','sum','t','tan','theta','times','u','v','w','x','y','z','{','}']
+    # Possible classes (labels corresponding with test set)
+    classes = ['!', '(', ')', '+', 'COMMA', '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '=', 'A', 'B', 'C', '\Delta', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'V', 'X', 'Y', '[', ']', 'a', '\alpha', 'b', '\beta', 'c', '\cos', 'd', '\div', '\div_op', '.', 'e', '\exists', 'f', '\forall',
+               'g', '\gamma', '\geq', '\gt', 'h', 'i', '\in', '`\infty', '\int', 'j', 'k', 'l', '\lambda', '\ldots', '\leq', '\lim', '\log', '\lt', 'm', '\mu', 'n', '\neq', 'o', 'p', '\phi', '\pi', '|', '\pm', '\prime', 'q', 'r', '\rightarrow', 's', '\sigma', '\sin', '\sqrt', '\sum', 't', '\tan', '\theta', '\times', 'u', 'v', 'w', 'x', 'y', 'z', '\{', '\}']
     
     model = torch.load(RECOGNITION_PATH)
     model.eval()

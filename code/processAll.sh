@@ -17,9 +17,6 @@ OUTDIR=$2
 if ! [ -d $OUTDIR ] 
 then
 	mkdir $OUTDIR
-	mkdir hyp_$OUTDIR
-	mkdir seg_$OUTDIR
-	mkdir symb_$OUTDIR
 fi
 
 for file in $1/*.inkml
