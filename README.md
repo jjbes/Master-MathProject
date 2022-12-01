@@ -1,7 +1,7 @@
 Math Project
 ========
 
-Author/Contact: Harold Mouchère (harold.mouchere@univ-nantes.fr)
+Author/Contact: Harold Mouchère (harold.mouchere@univ-nantes.fr)  
 Edited by : Julien Aubert (julien.aubert---beduchaud@etu.univ-nantes.fr)
 
 This is a Master Project to apply machine (deep) learning tool on a challenging computer vision problem: recognition of handwritten Math Expression.
