@@ -17,7 +17,7 @@ from torchvision import transforms
 from PIL import Image
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-SEGMENTER_PATH= "./model/segmenter_120K.pt"
+SEGMENTER_PATH= "../model/segmenter_120K.pt"
 transform = transforms.Compose(
     [transforms.Grayscale(),
      transforms.ToTensor()])

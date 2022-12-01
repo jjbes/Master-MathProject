@@ -17,7 +17,7 @@ from torchvision import transforms
 from PIL import Image
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-RECOGNITION_PATH= "./model/recognition.pt"
+RECOGNITION_PATH= "../model/recognition.pt"
 transform = transforms.Compose(
     [transforms.Grayscale(),
      transforms.ToTensor()])
@@ -41,8 +41,8 @@ def computeClProb(alltraces, hyp, min_threshol, saveIm = False):
     if saveIm:
         imsave(hyp[0] + '.png', im)
     # Possible classes (labels corresponding with test set)
-    classes = ['!', '(', ')', '+', 'COMMA', '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '=', 'A', 'B', 'C', '\Delta', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'V', 'X', 'Y', '[', ']', 'a', '\alpha', 'b', '\beta', 'c', '\cos', 'd', '\div', '\div_op', '.', 'e', '\exists', 'f', '\forall',
-               'g', '\gamma', '\geq', '\gt', 'h', 'i', '\in', '`\infty', '\int', 'j', 'k', 'l', '\lambda', '\ldots', '\leq', '\lim', '\log', '\lt', 'm', '\mu', 'n', '\neq', 'o', 'p', '\phi', '\pi', '|', '\pm', '\prime', 'q', 'r', '\rightarrow', 's', '\sigma', '\sin', '\sqrt', '\sum', 't', '\tan', '\theta', '\times', 'u', 'v', 'w', 'x', 'y', 'z', '\{', '\}']
+    classes = ['!', '(', ')', '+', 'COMMA', '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '=', 'A', 'B', 'C', '\Delta', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'V', 'X', 'Y', '[', ']', 'a', '\\alpha', 'b', '\\beta', 'c', '\cos', 'd', '\div', '\div_op', '.', 'e', '\exists', 'f', '\\forall',
+               'g', '\gamma', '\geq', '\gt', 'h', 'i', '\in', '\infty', '\int', 'j', 'k', 'l', '\lambda', '\ldots', '\leq', '\lim', '\log', '\lt', 'm', '\mu', 'n', '\\neq', 'o', 'p', '\phi', '\pi', '|', '\pm', '\prime', 'q', 'r', '\\rightarrow', 's', '\sigma', '\sin', '\sqrt', '\sum', 't', '\\tan', '\\theta', '\\times', 'u', 'v', 'w', 'x', 'y', 'z', '\{', '\}']
     
     model = torch.load(RECOGNITION_PATH)
     model.eval()
