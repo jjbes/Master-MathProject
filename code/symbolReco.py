@@ -44,7 +44,7 @@ def computeClProb(alltraces, hyp, min_threshol, saveIm = False):
     classes = ['!', '(', ')', '+', 'COMMA', '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '=', 'A', 'B', 'C', '\Delta', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'V', 'X', 'Y', '[', ']', 'a', '\\alpha', 'b', '\\beta', 'c', '\cos', 'd', '\div', '\div_op', '.', 'e', '\exists', 'f', '\\forall',
                'g', '\gamma', '\geq', '\gt', 'h', 'i', '\in', '\infty', '\int', 'j', 'k', 'l', '\lambda', '\ldots', '\leq', '\lim', '\log', '\lt', 'm', '\mu', 'n', '\\neq', 'o', 'p', '\phi', '\pi', '|', '\pm', '\prime', 'q', 'r', '\\rightarrow', 's', '\sigma', '\sin', '\sqrt', '\sum', 't', '\\tan', '\\theta', '\\times', 'u', 'v', 'w', 'x', 'y', 'z', '\{', '\}']
     
-    model = torch.load(RECOGNITION_PATH)
+    model = torch.load(RECOGNITION_PATH).to(device)
     model.eval()
 
     im = Image.fromarray(im)

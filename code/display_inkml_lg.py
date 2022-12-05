@@ -16,10 +16,12 @@ if __name__ == '__main__':
     plt.figure()
     N = imgs.shape[0]
     for i in range(N):
-        ax = plt.subplot(np.ceil(np.sqrt(N)), np.ceil(np.sqrt(N)), i+1)
+        ax = plt.subplot(int(np.ceil(np.sqrt(N))), int(np.ceil(np.sqrt(N))), i+1)
         plt.imshow(imgs[i], origin='upper', alpha = 1)
         ax.set_xticklabels([]);ax.set_yticklabels([])
     plt.show()
+    plt.savefig('./test.png')
+
     plt.figure()
     imgs = np.zeros((len(traces), 64, 64))
     for u, (i, trace) in enumerate(traces.items()):
@@ -28,9 +30,10 @@ if __name__ == '__main__':
     hypothesis = generateHypSeg(len(imgs))
     N = len(hypothesis)
     for i in range(N):
-        ax = plt.subplot(np.ceil(np.sqrt(N)), np.ceil(np.sqrt(N)), i+1)
+        ax = plt.subplot(int(np.ceil(np.sqrt(N))), int(np.ceil(np.sqrt(N))), i+1)
         # imgs[hypothesis[i]].sum()
         plt.imshow((255 - imgs[hypothesis[i]]).sum(0).clip(0,255), origin='upper', alpha = 1)
         ax.set_xticklabels([]);ax.set_yticklabels([])
     plt.show()
+    plt.savefig('./test2.png')
     print('end')

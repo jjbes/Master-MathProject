@@ -35,7 +35,7 @@ take an hypothesis (from LG = list of stroke index), select the corresponding st
 return the probability of being a good segmentation [0:1]  
 """
 def computeProbSeg(alltraces, hyp, saveIm = False):
-    model = torch.load(SEGMENTER_PATH)
+    model = torch.load(SEGMENTER_PATH).to(device)
     model.eval()
 
     im = convert_to_imgs(get_traces_data(alltraces, hyp[1]), 32)
